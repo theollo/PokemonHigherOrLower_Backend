@@ -17,14 +17,14 @@ public class Player {
     private Long id;
 
     @Column (name = "name")
-    private String name;
+    private String username;
 
     @OneToMany(mappedBy = "player")
     @JsonIgnoreProperties({"player"})
     private List<Game> games;
 
-    public Player (String name){
-        this.name = name;
+    public Player (String username){
+        this.username = username;
         this.games = new ArrayList<>();
     }
 
@@ -38,11 +38,11 @@ public class Player {
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String username) {
+        this.username = username;
     }
 
     public List<Game> getGames() {
