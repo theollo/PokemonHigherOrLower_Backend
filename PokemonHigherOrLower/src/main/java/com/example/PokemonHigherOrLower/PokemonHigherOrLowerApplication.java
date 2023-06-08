@@ -14,28 +14,3 @@ public class PokemonHigherOrLowerApplication {
 		SpringApplication.run(PokemonHigherOrLowerApplication.class, args);
 	}
 }
-//@SpringBootApplication
-//public class PokemonHigherOrLowerApplication {
-//
-//	private static PokemonService pokemonService;
-//
-//	@Autowired
-//	public PokemonHigherOrLowerApplication(PokemonService pokemonService) {
-//		PokemonHigherOrLowerApplication.pokemonService = pokemonService;
-//	}
-//
-//	public static void main(String[] args) throws JsonProcessingException {
-//		SpringApplication.run(PokemonHigherOrLowerApplication.class, args);
-//			pokemonService.getPokemonTotalBaseStatById(1);
-//	}
-//
-//}
-//@SpringBootApplication
-//public class PokemonHigherOrLowerApplication {
-//	static PokemonService pokemonService = new PokemonService();
-//	public static void main(String[] args) throws JsonProcessingException {
-//		SpringApplication.run(PokemonHigherOrLowerApplication.class, args);
-//		pokemonService.getPokemonStatsById(1);
-//	}
-//
-//}
