@@ -17,18 +17,6 @@ public class PokemonController {
 
 }
 
-//@RestController
-//public class PokemonController {
-//    private final PokemonService pokemonService;
-//
-//    @Autowired
-//    public PokemonController(PokemonService pokemonService) {
-//        this.pokemonService = pokemonService;
-//    }
-//
-//    @GetMapping("/pokemon/{pokemonName}")
-//    public Pokemon getPokemonStats(@PathVariable String pokemonName)
-
 
 
 
