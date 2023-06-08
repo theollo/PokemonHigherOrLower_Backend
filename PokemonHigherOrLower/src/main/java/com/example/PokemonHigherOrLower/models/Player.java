@@ -16,15 +16,19 @@ public class Player {
     @Column
     private Long id;
 
-    @Column (name = "name")
+    @Column (name = "username")
     private String username;
+
+    @Column (name = "password")
+    private String password;
 
     @OneToMany(mappedBy = "player")
     @JsonIgnoreProperties({"player"})
     private List<Game> games;
 
-    public Player (String username){
+    public Player (String username, String password){
         this.username = username;
+        this.password = password;
         this.games = new ArrayList<>();
     }
 
