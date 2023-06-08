@@ -26,7 +26,7 @@ public class PokemonService {
 
         String url = apiUrl + result;
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class); // , Map.of("id","1")
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode pokemonNode = objectMapper.readTree(responseEntity.getBody());
 
