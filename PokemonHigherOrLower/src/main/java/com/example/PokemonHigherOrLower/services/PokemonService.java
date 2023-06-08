@@ -1,15 +1,15 @@
 package com.example.PokemonHigherOrLower.services;
 
-import com.example.PokemonHigherOrLower.models.Pokemon;
 //import com.example.PokemonHigherOrLower.models.PokemonResponse;
-import com.example.PokemonHigherOrLower.repositories.PokemonRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Map;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class PokemonService {
@@ -26,8 +26,15 @@ public class PokemonService {
     int high = 1010;
     int result = r.nextInt(high-low) + low;
 
-    private Pokemon getPokemonById(int id){
+    public Integer getPokemonStatsById(int id) throws JsonProcessingException {
         String url = apiUrl + id;
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(url,String.class, Map.of("id","1"));
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode pokemon = objectMapper.readTree(responseEntity.getBody());
+
+        System.out.println(pokemon.get("stats").get(0).get("base_stat"));
+
         return null;
     }
 
