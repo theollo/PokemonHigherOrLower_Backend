@@ -10,6 +10,9 @@ public class Pokemon {
         this.name = name;
         this.totalBaseStat = totalBaseStat;
     }
+    public Pokemon(){
+
+    }
 
     // getters and setters
 
@@ -37,4 +40,3 @@ public class Pokemon {
         this.totalBaseStat = totalBaseStat;
     }
 }
-
