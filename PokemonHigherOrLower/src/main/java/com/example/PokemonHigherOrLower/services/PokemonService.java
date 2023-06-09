@@ -18,7 +18,7 @@ import java.util.Random;
 public class PokemonService {
     private String apiUrl = "https://pokeapi.co/api/v2/pokemon/";
     Random r = new Random();
-    int low = 10;
+    int low = 1;
     int high = 1010;
 
     public Pokemon getRandomPokemon() throws JsonProcessingException {
