@@ -25,18 +25,18 @@ public class Player {
     @Column (name = "highScore")
     private int highScore;
 
-    @OneToMany(mappedBy = "player")
-    @JsonIgnoreProperties({"player"})
-    private List<Game> games;
-
-    public Player (String username, String password){
+    public Player(Long id, String username, String password, int highScore) {
+        this.id = id;
         this.username = username;
         this.password = password;
-        this.highScore = 0;
-        this.games = new ArrayList<>();
+        this.highScore = highScore;
     }
 
-//getters and setters
+    public Player(){
+
+    }
+
+    //getters and setters
 
 
     public Long getId() {
@@ -69,13 +69,5 @@ public class Player {
 
     public void setHighScore(int highScore) {
         this.highScore = highScore;
-    }
-
-    public List<Game> getGames() {
-        return games;
-    }
-
-    public void setGames(List<Game> games) {
-        this.games = games;
     }
 }
