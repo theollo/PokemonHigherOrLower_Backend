@@ -25,11 +25,17 @@ public class Player {
     @Column (name = "highScore")
     private int highScore;
 
+    // list<Game>, One to many relationship with Game
+    @OneToMany(mappedBy = "player")
+    @JsonIgnoreProperties({"player"})
+    private List<Game> games;
+
     public Player(Long id, String username, String password, int highScore) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.highScore = highScore;
+        this.games = new ArrayList<>();
     }
 
     public Player(){
