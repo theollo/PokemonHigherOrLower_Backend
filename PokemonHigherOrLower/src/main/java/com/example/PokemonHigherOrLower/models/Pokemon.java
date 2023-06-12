@@ -4,18 +4,20 @@ public class Pokemon {
     private int id;
     private String name;
     private int totalBaseStat;
+    private String imageUrl;
 
-    public Pokemon(int id, String name, int totalBaseStat) {
+    public Pokemon(int id, String name, int totalBaseStat, String imageUrl) {
         this.id = id;
         this.name = name;
         this.totalBaseStat = totalBaseStat;
-    }
-    public Pokemon(){
-
+        this.imageUrl = imageUrl;
     }
 
-    // getters and setters
+    // Default constructor
+    public Pokemon() {
+    }
 
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -39,4 +41,9 @@ public class Pokemon {
     public void setTotalBaseStat(int totalBaseStat) {
         this.totalBaseStat = totalBaseStat;
     }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
 }
+

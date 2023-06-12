@@ -1,6 +1,5 @@
 package com.example.PokemonHigherOrLower.services;
 
-//import com.example.PokemonHigherOrLower.models.PokemonResponse;
 import com.example.PokemonHigherOrLower.models.Pokemon;
 import com.example.PokemonHigherOrLower.models.PokemonPair;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -12,8 +11,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Random;
 
-
-
 @Service
 public class PokemonService {
     private String apiUrl = "https://pokeapi.co/api/v2/pokemon/";
@@ -21,7 +18,7 @@ public class PokemonService {
     int low = 1;
     int high = 1010;
 
-    public Pokemon getRandomPokemon() throws JsonProcessingException {
+    public Pokemon getRandomPokemonWithImage() throws JsonProcessingException {
         int result = r.nextInt(high - low) + low;
 
         String url = apiUrl + result;
@@ -36,14 +33,17 @@ public class PokemonService {
             totalBaseStat += pokemonNode.get("stats").get(i).get("base_stat").asInt();
         }
 
-        return new Pokemon(result, name, totalBaseStat);
+        String imageUrl = pokemonNode.get("sprites").get("other").get("official-artwork").get("front_default").asText();
+
+        return new Pokemon(result, name, totalBaseStat, imageUrl);
     }
 
     public PokemonPair getRandomPokemonPair() throws JsonProcessingException {
-        Pokemon pokemon1 = getRandomPokemon();
-        Pokemon pokemon2 = getRandomPokemon();
+        Pokemon pokemon1 = getRandomPokemonWithImage();
+        Pokemon pokemon2 = getRandomPokemonWithImage();
         return new PokemonPair(pokemon1, pokemon2);
     }
 }
+
 
 

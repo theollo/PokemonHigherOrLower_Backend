@@ -1,5 +1,6 @@
 package com.example.PokemonHigherOrLower.controllers;
 
+import com.example.PokemonHigherOrLower.models.Pokemon;
 import com.example.PokemonHigherOrLower.models.PokemonPair;
 import com.example.PokemonHigherOrLower.services.PokemonService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -28,10 +29,15 @@ public class PokemonController {
             return ResponseEntity.status(500).build();
         }
     }
+
+    @GetMapping("/random")
+    public ResponseEntity<Pokemon> getRandomPokemon() {
+        try {
+            Pokemon randomPokemon = pokemonService.getRandomPokemonWithImage();
+            return ResponseEntity.ok(randomPokemon);
+        } catch (JsonProcessingException e) {
+            return ResponseEntity.status(500).build();
+        }
+    }
 }
-
-
-
-
-
 
