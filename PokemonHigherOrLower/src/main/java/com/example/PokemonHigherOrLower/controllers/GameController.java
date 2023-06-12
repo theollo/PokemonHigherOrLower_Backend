@@ -16,7 +16,7 @@ public class GameController {
 
     // POST to create game
     @PostMapping
-    public ResponseEntity<Reply> createNewGame(@RequestParam long playerId) {
+    public ResponseEntity<Reply> createNewGame(@RequestParam Long playerId) {
         Reply reply = gameService.createNewGame(playerId);
         return new ResponseEntity<>(reply, HttpStatus.CREATED);
     }

@@ -8,6 +8,7 @@ import java.beans.ConstructorProperties;
 @Entity(name="games")
 public class Game {
     @Id
+    @GeneratedValue
     private Long id;
 
     @Column
