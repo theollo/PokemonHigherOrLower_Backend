@@ -2,6 +2,7 @@ package com.example.PokemonHigherOrLower.services;
 
 import com.example.PokemonHigherOrLower.models.Game;
 import com.example.PokemonHigherOrLower.models.Player;
+import com.example.PokemonHigherOrLower.models.Reply;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

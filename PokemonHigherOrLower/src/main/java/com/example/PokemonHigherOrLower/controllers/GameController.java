@@ -1,5 +1,6 @@
 package com.example.PokemonHigherOrLower.controllers;
 
+import com.example.PokemonHigherOrLower.models.Reply;
 import com.example.PokemonHigherOrLower.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
