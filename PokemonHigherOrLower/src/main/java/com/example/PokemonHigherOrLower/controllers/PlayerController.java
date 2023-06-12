@@ -49,4 +49,11 @@ public class PlayerController {
         playerService.deletePlayer(id);
         return ResponseEntity.noContent().build();
     }
+    @PatchMapping("/{id}/highscore")
+    public ResponseEntity<Player> updateHighScore(@PathVariable Long id, @RequestBody Player newPlayerScore) {
+        return playerService.updateHighScore(id, newPlayerScore.getHighScore())
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
 }
