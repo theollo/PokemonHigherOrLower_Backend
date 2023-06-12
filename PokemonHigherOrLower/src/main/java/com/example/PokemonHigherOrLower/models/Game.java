@@ -14,6 +14,9 @@ public class Game {
     private int score;
 
     @Column
+    private int highScore;
+
+    @Column
     private boolean isComplete;
 
 //    @ManyToOne
@@ -28,6 +31,7 @@ public class Game {
     // Constructor
     public Game(Player player) {
         this.score = 0;
+        this.highScore = 0;
         this.isComplete = false;
         this.player = player;
     }
@@ -67,5 +71,13 @@ public class Game {
 
     public void setComplete(boolean complete) {
         isComplete = complete;
+    }
+
+    public int getHighScore() {
+        return highScore;
+    }
+
+    public void setHighScore(int highScore) {
+        this.highScore = highScore;
     }
 }
