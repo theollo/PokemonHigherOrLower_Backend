@@ -76,4 +76,12 @@ public class Player {
     public void setHighScore(int highScore) {
         this.highScore = highScore;
     }
+
+    public List<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(List<Game> games) {
+        this.games = games;
+    }
 }
