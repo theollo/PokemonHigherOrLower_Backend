@@ -21,4 +21,11 @@ public class GameService {
         gameRepository.save(game);
         return new Reply(game.getScore());
     }
+
+    public Reply terminateGame(Long id){
+        Game game = gameRepository.findById(id).get();
+        game.setComplete(true);
+        gameRepository.save(game);
+        return new Reply(game.getScore());
+    }
 }

@@ -4,4 +4,8 @@ public class Reply {
 
     public Reply(int score) {
     }
+
+    public Reply(){
+
+    }
 }
