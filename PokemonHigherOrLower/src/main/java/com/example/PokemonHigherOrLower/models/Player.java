@@ -30,8 +30,8 @@ public class Player {
     @JsonIgnoreProperties({"player"})
     private List<Game> games;
 
-    public Player(String username, String password, int highScore) { // Long id, int highscore
-//        this.id = id;
+    public Player(String username, String password, int highScore, Long id) { // Long id, int highscore
+        this.id = id;
         this.username = username;
         this.password = password;
         this.highScore = highScore;
