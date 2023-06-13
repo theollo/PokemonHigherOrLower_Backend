@@ -25,22 +25,22 @@ public class GameService {
         return new Reply(game.getScore());
     }
 
-    public Reply terminateGame(Long id){
-        Game game = gameRepository.findById(id).get();
-        game.setComplete(true);
-        gameRepository.save(game);
-        return new Reply(game.getScore());
-    }
-    public Game updateGameScore(Long id, int newScore) {
-        Optional<Game> optionalGame = gameRepository.findById(id);
-        if (optionalGame.isPresent()) {
-            Game game = optionalGame.get();
-            game.setScore(newScore);
-            gameRepository.save(game);
-            return game;
-        } else {
-            throw new NoSuchElementException("Game with id " + id + " not found.");
-        }
-    }
+//    public Reply terminateGame(Long id){
+//        Game game = gameRepository.findById(id).get();
+//        game.setComplete(true);
+//        gameRepository.save(game);
+//        return new Reply(game.getScore());
+//    }
+//    public Game updateGameScore(Long id, int newScore) {
+//        Optional<Game> optionalGame = gameRepository.findById(id);
+//        if (optionalGame.isPresent()) {
+//            Game game = optionalGame.get();
+//            game.setScore(newScore);
+//            gameRepository.save(game);
+//            return game;
+//        } else {
+//            throw new NoSuchElementException("Game with id " + id + " not found.");
+//        }
+//    }
 
 }

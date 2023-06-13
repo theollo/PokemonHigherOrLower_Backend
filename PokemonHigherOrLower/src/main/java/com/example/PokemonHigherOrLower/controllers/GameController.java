@@ -22,17 +22,21 @@ public class GameController {
         return new ResponseEntity<>(reply, HttpStatus.CREATED);
     }
 
+//    @PatchMapping(value = "/{id}")
+//    public ResponseEntity<Reply> endGame(@PathVariable Long id) {
+//        Reply reply = gameService.terminateGame(id);
+//        return new ResponseEntity<>(reply, HttpStatus.OK);
+//    }
+//
+//    @PatchMapping("/{id}/score")
+//    public ResponseEntity<Game> updateGameScore(@PathVariable Long id, @RequestBody Game newGameScore) {
+//        Game updatedGame = gameService.updateGameScore(id, newGameScore.getScore());
+//        return new ResponseEntity<>(updatedGame, HttpStatus.OK);
+//    }
+
     @PatchMapping(value = "/{id}")
-    public ResponseEntity<Reply> endGame(@PathVariable Long id) {
-        Reply reply = gameService.terminateGame(id);
-        return new ResponseEntity<>(reply, HttpStatus.OK);
-    }
+    public ResponseEntity<Game>
 
-    @PatchMapping("/{id}/score")
-    public ResponseEntity<Game> updateGameScore(@PathVariable Long id, @RequestBody Game newGameScore) {
-        Game updatedGame = gameService.updateGameScore(id, newGameScore.getScore());
-        return new ResponseEntity<>(updatedGame, HttpStatus.OK);
-    }
-
-
+    // requestparam for score,
+    // change gameservice to update score when game ends
 }
