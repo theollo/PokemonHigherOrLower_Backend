@@ -20,17 +20,17 @@ public class PlayerService {
     }
 
     // In the PlayerService class
-//    public Optional<Player> updateHighScore(Long id, int newScore) {
-//        Optional<Player> optionalPlayer = playerRepository.findById(id);
-//        if(optionalPlayer.isPresent()){
-//            Player player = optionalPlayer.get();
-//            if(newScore > player.getHighScore()){
-//                player.setHighScore(newScore);
-//                playerRepository.save(player);
-//            }
-//        }
-//        return optionalPlayer;
-//    }
+    public Optional<Player> updateHighScore(Long id, int newScore) {
+        Optional<Player> optionalPlayer = playerRepository.findById(id);
+        if(optionalPlayer.isPresent()){
+            Player player = optionalPlayer.get();
+            if(newScore > player.getHighScore()){
+                player.setHighScore(newScore);
+                playerRepository.save(player);
+            }
+        }
+        return optionalPlayer;
+    }
 
 
     public List<Player> getAllPlayers() {
