@@ -24,6 +24,15 @@ public class GameService {
         gameRepository.save(game);
         return new Reply(game.getScore());
     }
+    public Optional<Game> updateGameScoreAndCompleteStatus(Long id, int score, boolean isComplete) {
+        return gameRepository.findById(id)
+                .map(game -> {
+                    game.setScore(score);
+                    game.setIsComplete(isComplete);
+                    return gameRepository.save(game);
+                });
+    }
+
 
 //    public Reply terminateGame(Long id){
 //        Game game = gameRepository.findById(id).get();

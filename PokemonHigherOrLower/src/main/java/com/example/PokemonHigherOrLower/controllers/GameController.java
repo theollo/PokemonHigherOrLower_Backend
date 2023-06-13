@@ -33,9 +33,12 @@ public class GameController {
 //        Game updatedGame = gameService.updateGameScore(id, newGameScore.getScore());
 //        return new ResponseEntity<>(updatedGame, HttpStatus.OK);
 //    }
-
-    @PatchMapping(value = "/{id}")
-    public ResponseEntity<Game>
+@PatchMapping("/{id}/score")
+public ResponseEntity<Game> updateGameScoreAndCompleteStatus(@PathVariable Long id, @RequestBody Game gameDetails) {
+    return gameService.updateGameScoreAndCompleteStatus(id, gameDetails.getScore(), gameDetails.getIsComplete())
+            .map(ResponseEntity::ok)
+            .orElse(ResponseEntity.notFound().build());
+}
 
     // requestparam for score,
     // change gameservice to update score when game ends
