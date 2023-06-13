@@ -14,8 +14,8 @@ public class Game {
     @Column
     private int score;
 
-    @Column
-    private int highScore;
+//    @Column
+//    private int highScore;
 
     @Column
     private boolean isComplete;
@@ -32,7 +32,7 @@ public class Game {
     // Constructor
     public Game(Player player) {
         this.score = 0;
-        this.highScore = 0;
+//        this.highScore = 0;
         this.isComplete = false;
         this.player = player;
     }
@@ -74,11 +74,11 @@ public class Game {
         isComplete = complete;
     }
 
-    public int getHighScore() {
-        return highScore;
-    }
-
-    public void setHighScore(int highScore) {
-        this.highScore = highScore;
-    }
+//    public int getHighScore() {
+//        return highScore;
+//    }
+//
+//    public void setHighScore(int highScore) {
+//        this.highScore = highScore;
+//    }
 }
