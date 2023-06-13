@@ -1,5 +1,6 @@
 package com.example.PokemonHigherOrLower.controllers;
 
+import com.example.PokemonHigherOrLower.models.Game;
 import com.example.PokemonHigherOrLower.models.Reply;
 import com.example.PokemonHigherOrLower.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,12 @@ public class GameController {
         Reply reply = gameService.terminateGame(id);
         return new ResponseEntity<>(reply, HttpStatus.OK);
     }
+
+    @PatchMapping("/{id}/score")
+    public ResponseEntity<Game> updateGameScore(@PathVariable Long id, @RequestBody Game newGameScore) {
+        Game updatedGame = gameService.updateGameScore(id, newGameScore.getScore());
+        return new ResponseEntity<>(updatedGame, HttpStatus.OK);
+    }
+
 
 }

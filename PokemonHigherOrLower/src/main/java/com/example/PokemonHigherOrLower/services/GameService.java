@@ -7,6 +7,9 @@ import com.example.PokemonHigherOrLower.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
 @Service
 public class GameService {
 
@@ -28,4 +31,16 @@ public class GameService {
         gameRepository.save(game);
         return new Reply(game.getScore());
     }
+    public Game updateGameScore(Long id, int newScore) {
+        Optional<Game> optionalGame = gameRepository.findById(id);
+        if (optionalGame.isPresent()) {
+            Game game = optionalGame.get();
+            game.setScore(newScore);
+            gameRepository.save(game);
+            return game;
+        } else {
+            throw new NoSuchElementException("Game with id " + id + " not found.");
+        }
+    }
+
 }
