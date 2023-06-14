@@ -22,19 +22,19 @@ public class Player {
     @Column (name = "password")
     private String password;
 
-    @Column (name = "highScore")
-    private int highScore;
+//    @Column (name = "highScore")
+//    private int highScore;
 
     // list<Game>, One to many relationship with Game
     @OneToMany(mappedBy = "player")
     @JsonIgnoreProperties({"player"})
     private List<Game> games;
 
-    public Player(String username, String password, int highScore, Long id) { // Long id, int highscore
+    public Player(String username, String password, Long id) { // Long id, int highscore
         this.id = id;
         this.username = username;
         this.password = password;
-        this.highScore = highScore;
+//        this.highScore = highScore;
         this.games = new ArrayList<>();
     }
 
@@ -69,13 +69,13 @@ public class Player {
         this.password = password;
     }
 
-    public int getHighScore() {
-        return highScore;
-    }
-
-    public void setHighScore(int highScore) {
-        this.highScore = highScore;
-    }
+//    public int getHighScore() {
+//        return highScore;
+//    }
+//
+//    public void setHighScore(int highScore) {
+//        this.highScore = highScore;
+//    }
 
     public List<Game> getGames() {
         return games;
